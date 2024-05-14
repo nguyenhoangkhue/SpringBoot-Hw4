@@ -24,7 +24,7 @@ public class ProductDaoimpl implements ProductDAO {
     @Override
     public List<Product>searchProduct(String prefix){
         return findAll().stream()
-                .filter(product -> product.getName().startsWith(prefix))
+                .filter(product -> product.getName().toLowerCase().startsWith(prefix.toLowerCase()))
                 .collect(Collectors.toList());
     }
     @Override
@@ -36,7 +36,7 @@ public class ProductDaoimpl implements ProductDAO {
     @Override
     public List<Product>searchByBrand(String brand){
         return findAll().stream()
-                .filter(product -> product.getBrand().equals(brand))
+                .filter(product -> product.getBrand().toLowerCase().equals(brand.toLowerCase()))
                 .collect(Collectors.toList());
     }
     @Override

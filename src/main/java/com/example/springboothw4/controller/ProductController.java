@@ -18,7 +18,7 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @GetMapping()
+    @GetMapping("")
     public String getAllProducts(Model model) {
         List<Product> products = productService.getAllProducts();
         model.addAttribute("products",products);
